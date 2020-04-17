@@ -34,16 +34,12 @@ const auth = {
             }, dispatch)
         }
     },
-    googleLogIn: function (callback) {
-        return dispatch => {
-            api.setMethod('GET').sendRequest(apiPaths.googleLogIn, null, false, function (response) {
-                callback(response);
-            }, dispatch)
+    socialLogin: function (socialToken, callback) {
+        let payload = {
+            "socialToken": `${socialToken}`
         }
-    },
-    facebookLogIn: function (rememberMe, callback) {
         return dispatch => {
-            api.setMethod('GET').sendRequest(apiPaths.facebookLogIn, null, false, function (response) {
+            api.setMethod('POST').sendRequest(apiPaths.socialLogin, payload, false, function (response) {
                 callback(response);
             }, dispatch)
         }

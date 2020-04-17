@@ -1,0 +1,37 @@
+ul li{
+    font-size: 15px !important;
+}
+.body-start{
+    background-image: url("../../images/awesome.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+}
+.navbar-fixed-top.scrolled {
+    background-color:purple!important;
+    transition: background-color 200ms linear;
+    min-height: 8% !important; 
+  }
+  .navbar-fixed-top.scrolled .nav-link {
+    color:#555;
+  }
+.body-content1{
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-size: cover;
+    height: 90%;
+}
+
+.body-content{
+    text-align: center;
+    color: white;
+    height: 50%;
+    position: absolute;
+    top: 41%;
+    left: 22%;
+    right: 22%;
+}
