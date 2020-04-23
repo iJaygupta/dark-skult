@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Switch, Route } from "react-router-dom";
 import Profile from '../components/profile/Profile';
 import DisplayMsg from '../components/pages/NotFound';
+import Loader from '../components/common/loader/Laoder';
+
 
 
 // import { Form, Input, Button, Container, } from 'reactstrap';
@@ -17,6 +19,7 @@ class Main extends Component {
             <div className="App" >
                 <Switch>
                     <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/loader" component={Loader} />
                     <Route path="*" component={DisplayMsg} />
                 </Switch>
             </div>
