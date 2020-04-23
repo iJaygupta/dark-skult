@@ -46,15 +46,14 @@ const self = {
 			self.setHeader('fingerPrint', '');
 			self.setFingerPrint(fingerPrintFromCookies);
 		}
-		(authenticate) ? self.setHeader('token', (typeof Cookies.load('token') != 'undefined') ? Cookies.load('token') : '') : '';
+		(authenticate) ? self.setHeader('Authorization', (typeof localStorage.getItem('token') != 'undefined') ? localStorage.getItem('token') : '') : '';
 		// (!url.includes("http")) ? url = process.env.REACT_APP_API_URL + url : ""
+		console.log("self.headers", self.headers);
 		return axios({
 			method: self.method,
 			url: process.env.REACT_APP_API_URL + url,
 			responseType: 'json',
-			headers: {
-				'Accept': 'application/json',
-			},
+			headers: self.headers,
 			data: data,
 			timeout: 120000,
 			params: (self.method == "GET") ? data : {}

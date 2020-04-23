@@ -40,7 +40,14 @@ const auth = {
         }
         return dispatch => {
             api.setMethod('POST').sendRequest(apiPaths.socialLogin, payload, false, function (response) {
-                callback(response);
+                dispatch({
+                    type: 'socialLogin',
+                    error: response.data.error,
+                    msg: response.data.msg,
+                    token: response.data.token,
+                    userInfo: response.data.data
+                });
+                callback(response.data);
             }, dispatch)
         }
     }

@@ -19,19 +19,9 @@ class Home extends Component {
     componentWillReceiveProps(nextState, updatedProps) {
 
     }
-
-    handleSociallogIn() {
-        console.log("URL ", process.env)
-        this.props.authAction.googleLogIn(function (data) {
-            console.log("api call data ==>>", data);
-        })
-    }
+  
 
     componentDidMount() {
-        console.log("URL ", process.env)
-        this.props.authAction.login("918808974265", "Pass1234", true, function (data) {
-            console.log("api call data ==>>", data);
-        })
         $(function () {
             $(document).scroll(function () {
                 var $nav = $(".navbar-fixed-top");
@@ -131,18 +121,14 @@ class Home extends Component {
 
 
 const mapStateToProps = (state) => {
-
     return {
-        userInfo: state.authData.userInfo,
-        token: state.authData.token
 
     }
 }
 
 function mapDispatchToProps(dispatch) {
-
     return {
-        authAction: bindActionCreators(actions.auth, dispatch),
+        
     };
 }
 

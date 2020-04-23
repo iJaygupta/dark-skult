@@ -17,12 +17,12 @@ class Modal extends Component {
     }
   }
 
-  handleSociallogIn = (authType) => {
-
-  }
-
   render() {
     console.log("Auth Props", this.props);
+    let facebookUrl= `${process.env.REACT_APP_API_URL}/auth/facebook`;
+    let googleUrl= `${process.env.REACT_APP_API_URL}/auth/google`;
+
+
 
     return (
       <div className={this.state.showHideClassname}>
@@ -32,14 +32,14 @@ class Modal extends Component {
               <h5 className="card-title"><h3><b style={{ "font-size": "16px" }}>Sign up or log in to MyWeb</b></h3></h5>
               <hr />
               <div>
-                <a href="http://localhost:8001/auth/google" className="card-link row border card-link p-3 active rounded m-3">
+                <a href={googleUrl} className="card-link row border card-link p-3 active rounded m-3">
                   <div className="col-4"><img width="25px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQ5fUKXoCIu4PTQutgld0al75g5OUNRY4jPxmEuRkRM21tEwQT&usqp=CAU" /></div>
                   <div className="col-8"><h6 className="card-subtitle mt-2 text-muted"> Continue with Google</h6></div>
                 </a>
               </div>
 
               <div>
-                <a href="http://localhost:8001/auth/facebook" className="card-link row border card-link p-3 active rounded m-3">
+                <a href={facebookUrl} className="card-link row border card-link p-3 active rounded m-3">
                   <div className="col-4"><img width="25px" src="https://clipart.info/images/ccovers/1509135364flat-facebook-logo-png-icon-circle.png" /></div>
                   <div className="col-8"><h6 className="card-subtitle mt-2 text-muted" >Continue with Facebook</h6></div>
                 </a>

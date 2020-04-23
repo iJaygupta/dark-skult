@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
-import actions from "../../../actions/index"
-import queryString from 'query-string'
+import actions from "../../../actions/index";
+import queryString from 'query-string';
 
 
 
@@ -12,22 +12,29 @@ class SocialAuth extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthModal: false,
-            showHideClassname: this.props.show ? "modal display-block" : "modal display-none"
         }
     }
 
     handleSocialLogIn() {
         let queryParam = queryString.parse(this.props.location.search);
         console.log("this.props.location.search ==>>", queryParam);
-        console.log(this.props)
+        console.log(this.props);
 
         if (queryParam && queryParam.token) {
-            this.props.authAction.socialLogin(queryParam.token, function (data) {
-                console.log("api call data ==>>", data);
+            this.props.authAction.socialLogin(queryParam.token, (data) => {
+                console.log("socialLogin call data ==>>", data);
+                if (data && !data.error && data.token) {
+                    localStorage.setItem('token', data.token)
+                    let value = localStorage.getItem('token');
+                    this.props.history.push("/profile");
+
+                } else {
+                    console.log("Failed Authentication");
+                    this.props.history.push("/");
+                }
+
             })
         }
-
     }
 
     componentDidMount() {
@@ -44,10 +51,7 @@ class SocialAuth extends Component {
 };
 
 const mapStateToProps = (state) => {
-
     return {
-
-
     }
 }
 
