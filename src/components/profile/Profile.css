@@ -1,16 +1,29 @@
 .profile-block{
-    background-color:lavender;
-    /* width:1428px;  */
-    
-
-
-
+    /* background-color:lavender; */
+    background-color:#eee;
+    }
+.progress-bar{
+    width: 40% !important;
 }
+.font_1{font-size:12px !important;}
+.font_2{font-size:14px !important;}
+.font_3{font-size:16px !important;}
 
-.profile-box{
-    width:1428px; 
-    margin-right: 78px;
 
+
+
+/* @media (min-width: 1200px){
+    
   }
-
- 
+  @media (min-width: 992px){
+    .col-md-6 .p-0{
+        width: 50% !important;
+        float: left !important;
+    }
+  }
+  @media (min-width: 768px){
+    .col-md-6 .p-0{
+        float: left !important;
+        width: 50% !important;
+    }
+  } */
