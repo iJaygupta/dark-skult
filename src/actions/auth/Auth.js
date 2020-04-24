@@ -27,10 +27,11 @@ const auth = {
             }, dispatch)
         }
     },
-    signUp: function (mobile, password, callback) {
+    signUp: function (userDetail, callback) {
         return dispatch => {
-            api.setMethod('POST').sendRequest(apiPaths.signUp, { mobile: mobile, password: password }, false, function (response) {
+            api.setMethod('POST').sendRequest(apiPaths.signUp, userDetail, false, function (response) {
                 console.log(response);
+                callback(response);
             }, dispatch)
         }
     },

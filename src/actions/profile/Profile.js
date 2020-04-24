@@ -4,7 +4,7 @@ import apiPaths from '../../lib/api';
 
 
 const profile = {
-    getUserDetails: function (userId, callback) {
+    getUserDetails: function (callback) {
 
         return dispatch => {
             api.setMethod('GET').sendRequest(`${apiPaths.getUserDetails}`, null, true, function (response) {

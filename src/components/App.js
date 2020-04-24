@@ -20,7 +20,7 @@ class App extends Component {
 
   authenticate = () => {
     let token = localStorage.getItem('token');
-    if (token || true) {
+    if (token) {
       return true
     } else {
       return false

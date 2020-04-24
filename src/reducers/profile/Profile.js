@@ -7,6 +7,10 @@ const profile = (state = {}, action) => {
         case 'signup':
             return { ...state, signupError: action.error, signupMsg: action.msg }
 
+        case 'getUserDetails':
+            return { ...state, email: '', password: '', error: action.error, msg: action.msg, token: action.token, userInfo: action.userInfo }
+
+
         default:
             return state
 
