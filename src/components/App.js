@@ -7,6 +7,7 @@ import actions from '../actions/index'
 import Home from './pages/HomePage';
 import Contact from './common/contact/ContactUs';
 import SocialAuth from './common/socialAuth/socialAuth';
+import Provider from './../containers/ProviderContainer';
 import Profile from './profile/Profile';
 import Main from './../containers/Main';
 import DisplayMsg from './pages/NotFound';
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/authenticate-social-user" component={SocialAuth} />
+          <Route exact path="/provider" component={Provider} />
           {this.authenticate() ? (
             <Route path="/" component={Main} />
           ) : (
