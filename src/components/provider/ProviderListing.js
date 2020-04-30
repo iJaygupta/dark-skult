@@ -6,6 +6,7 @@ import $ from "jquery";
 
 import './ProviderListing.css';
 import { bindActionCreators } from 'redux';
+import actions from '../../actions/index';
 
 
 
@@ -13,163 +14,167 @@ class ProviderListing extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            skip: "",
+            limit: "",
+            searchKeyword: "",
+            orderBy: "",
+            sortBy: "",
+            pagination: "",
+            page: "",
         }
     }
+
+    sortList = (field) => {
+        let order = (field == this.state.sortedField && this.state.sortedOrder && this.state.sortedOrder == 'desc') ? 'asc' : 'desc';
+        this.setState({ sortBy: field, orderBy: order }, () => {
+            this.applyFilter();
+        });
+    }
+
+    getServiceProviderList = () => {
+        this.props.profileAction.getServiceProviderList()
+    }
+
     componentDidMount() {
-        // $(function () {
-        //     $('[data-toggle="tooltip"]').tooltip()
-        //   })
-        
-        $(function () {
-           $(document).ready(function(){
-               
-                $("#table-serach").on("keyup", function() {
-                  var value = $(this).val().toLowerCase();
-                  $("#table-data tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                  });
-                  $(".table-menu li").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                  });
-                });
-                
-              });
-             
-                
-           
+        this.getServiceProviderList();
+    }
+
+    applyFilter = () => {
+        let filters = {
+            skip: this.state.skip,
+            limit: this.state.limit,
+            orderBy: this.state.orderBy,
+            sortBy: this.state.sortBy,
+            pagination: this.state.pagination,
+            page: this.state.page,
+            searchKeyword: this.state.searchKeyword.trim()
+        }
+        this.props.profileAction.getServiceProviderList(filters, (response) => {
+            console.log(response)
         })
     }
 
+    searchProviders = (e) => {
+        let value = e.target.value;
+        this.setState({
+            searchKeyword: value,
+            skip: "",
+            limit: "",
+            orderBy: "",
+            sortBy: "",
+            pagination: "",
+            page: "",
+        }, () => {
+            this.applyFilter();
+        })
+    }
+
+    handlePageChange = (pageNumber) => {
+        this.setState({ page: pageNumber, pagination: true }, () => {
+            this.applyFilter();
+        });
+    }
+
     render() {
+
+        let totalRecords = this.props.provider ? this.props.provider.totalRecords : ""
+        let totalResult = this.props.provider ? this.props.provider.totalResult : "";
+        let previousPage = this.props.provider && this.props.provider.pagination ? this.props.provider.pagination.previousPage : "";
+        let nextPage = this.props.provider && this.props.provider.pagination && this.props.provider.pagination ? this.props.provider.pagination.nextPage : 2;
+
+        console.log(nextPage, previousPage)
+
+        if (this.props.provider && this.props.provider.items) {
+            var provider = this.props.provider.items.map(data => {
+                return (<tr className="table-success">
+                    <td>{data.name}</td>
+                    <td>{data.lowest_price}</td>
+                    <td>{data.description}</td>
+                    <td>
+                        <a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
+                    </td>
+                </tr>)
+            })
+        }
+
+
         return (
             <div className="container-fluid">
-                <h6>Provider Listing...</h6>
                 <div className="table-wrapper">
                     <div className="table-title">
-                    <nav className="navbar navbar-light bg-light justify-content-between">
-                    <a className="navbar-brand">Brand_Logo</a>
-                    <form className="search-box form-inline">
-                        {/* <i class="material-icons">&#xE8B6;</i> */}
-                        <input id="table-serach" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                        </form>
-                    </nav>
-                <table id="table-data" className="table-bordered table table-hover">
-                <thead className="thead-dark">
-                    <tr>
-                    <th scope="col">Providers <i class="fa fa-sort"></i></th>
-                    <th scope="col">Range <i class="fa fa-sort"></i></th>
-                    <th scope="col">Rating <i class="fa fa-sort"></i></th>
-                    <th scope="col">Explore <i class="fa fa-sort"></i></th>
-                    </tr>
-                </thead>
-               <tbody className="" id="myTable">
-                    <tr className="table-success">
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                    <tr className="table-success">
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                    <tr className="table-success">
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                    <tr className="table-success">
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                    <tr className="table-success">
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                    <tr className="table-success">
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>Thornton</td>
-                    <td>
-						<a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
-                {/* pagination */}
-                
-                    
-                            <div className="clearfix">
-                            <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div><br/>
+                        <nav className="navbar navbar-light bg-light justify-content-between">
+                            <a className="navbar-brand">Brand_Logo</a>
+                            <form className="search-box form-inline">
+                                {/* <i class="material-icons">&#xE8B6;</i> */}
+                                <input id="table-serach" className="form-control mr-sm-2" type="search" placeholder="Search" onChange={this.searchProviders} aria-label="Search" />
+                            </form>
+                        </nav>
+                        <table id="table-data" className="table-bordered table table-hover">
+                            <thead className="thead-dark">
+                                <tr>
+                                    <th scope="col">Providers <i className="fa fa-sort"></i></th>
+                                    <th scope="col">Lowest Price <i className="fa fa-sort"></i></th>
+                                    <th scope="col">Description <i className="fa fa-sort"></i></th>
+                                    <th scope="col">Explore <i className="fa fa-sort"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody className="" id="myTable">
+                                {provider}
+                            </tbody>
+                        </table>
+
+                        <div className="clearfix">
+                            <div className="hint-text">Showing <b>{totalResult}</b> out of <b>{totalRecords}</b> entries</div><br />
                             <div className="row container-fluid">
-                            <div className="col-sm-6">
-                            <ul className="pagination">  {/*justify-content-end */}
-                                <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                                </li>
-                                <li className="page-item"><a className="page-link" href="#table-1">1</a></li>
-                                <li className="page-item"><a className="page-link" href="#table-2">2</a></li>
-                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                <li className="page-item">
-                                <a className="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul> 
-                            </div>
-                            <div className="col-sm-6 justify-content-start">
-                                <div className="dropdown">
-                                    <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
-                                    <span className="caret"></span></button>
-                                    <ul className="dropdown-menu border-0" id="table-menu">
-                                    <li className="pl-2"><a href="#">Price</a></li>
-                                    <li className="pl-2"><a href="#">Rating</a></li>
-                                    <li className="pl-2"><a href="#">Range</a></li>
+                                <div className="col-sm-6">
+                                    <ul className="pagination">  {/*justify-content-end */}
+                                        {previousPage && <li onClick={() => { this.handlePageChange(previousPage) }} className="page-item">
+                                            <a onClick={() => { this.handlePageChange(2) }} className="page-link" href="javascript:void(0);" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>}
+                                        <li onClick={() => { this.handlePageChange(1) }} className="page-item"><a className="page-link" href="javascript:void(0);">1</a></li>
+                                        <li onClick={() => { this.handlePageChange(2) }} className="page-item"><a className="page-link" href="javascript:void(0);">2</a></li>
+                                        <li onClick={() => { this.handlePageChange(3) }} className="page-item"><a className="page-link" href="javascript:void(0);">3</a></li>
+                                        <li onClick={() => { this.handlePageChange(4) }} className="page-item"><a className="page-link" href="javascript:void(0);">4</a></li>
+                                        {nextPage && <li onClick={() => { this.handlePageChange(nextPage) }} className="page-item">
+                                            <a className="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>}
                                     </ul>
                                 </div>
-                   
-                    </div>
-                     </div>
-                        
-                   </div></div>
-                   </div>
-                
-                
-                
-        
-             </div>             
-               
+                                <div className="col-sm-6 justify-content-start">
+                                    <div className="dropdown">
+                                        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
+                                    <span className="caret"></span></button>
+                                        <ul className="dropdown-menu border-0" id="table-menu">
+                                            <li className="pl-2"><a href="#">Price</a></li>
+                                            <li className="pl-2"><a href="#">Rating</a></li>
+                                            <li className="pl-2"><a href="#">Range</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div></div>
+                </div>
+            </div>
+
         );
     }
 };
 
 const mapStateToProps = (state) => {
     return {
+        provider: state.profileData.provider
     }
 }
 
 function mapDispatchToProps(dispatch) {
-
     return {
+        profileAction: bindActionCreators(actions.profile, dispatch),
     };
 }
 

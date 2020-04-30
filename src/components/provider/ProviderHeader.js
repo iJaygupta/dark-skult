@@ -19,7 +19,6 @@ class ProviderHeader extends Component {
     render() {
         return (
             <div>
-                <h1>Provider Header...</h1>
             </div>
         );
     }
