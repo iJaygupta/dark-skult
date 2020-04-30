@@ -1,9 +1,41 @@
 ul li{
     font-size: 15px !important;
 }
+ul li a{
+    font-size:16px !important;
+    font-weight: 500 !important;
+}
+ul li a:hover{
+    font-size:16px !important;
+    font-weight: 500 !important;
+    /* border-radius: 15px!important; */
+    /* background-color: black !important; */
+    /* border: .2px solid  white !important; */
+    /* border-color:  #fc6981 !important; */
+    color: #fc6981 !important;
+}
+.dropdown-menu{
+    background-color: #546e7a !important;
+    min-width: 8.4rem !important;
+    padding: 0 0 !important;
+    margin: 0.46rem 0 0 !important;
+    /* color: #fff !important; */
+}
+.dropdown-item{
+    color:#d7e7f6 !important;
+ }
+ .btn-dark{
+     background-color: transparent !important;
+ }
+ .btn:hover{
+     background-color: #fff !important;
+     color:#000000 !important;
+     padding:10px 36px !important;
+ }
 .body-start{
     background-image: url("../../images/awesome.jpg");
     height: 100%;
+    opacity:0.9;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -12,18 +44,29 @@ ul li{
     top: 0;
     right: 0;
 }
+#topnav{
+    border-bottom: 1px solid #595957;
+}
 .navbar-fixed-top.scrolled {
     background-color:purple!important;
+    border-bottom: none !important;
     transition: background-color 200ms linear;
-    min-height: 8% !important; 
+    min-height: 6% !important; 
   }
   .navbar-fixed-top.scrolled .nav-link {
     color:#555;
   }
 .body-content1{
-    background-color: rgba(0, 0, 0, 0.7) !important;
+    /* background-color: rgba(0, 0, 0, 0.7) !important;  */
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    /* background-color: rgba(34, 33, 33, 0.83) !important; 
     background-size: cover;
-    height: 90%;
+    height: 100%; */
 }
 
 .body-content{
