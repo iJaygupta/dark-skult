@@ -44,12 +44,13 @@ class Home extends Component {
 
 
         return (
-            <div>
+            <div className="d-block">
                 {/* <button onClick={this.showModal}>Open Modal</button> */}
                 {this.state.isAuthModal && <Modal show={this.state.isAuthModal} handleClose={this.hideModal} />}
 
                 <div className="body-start">
-                    <nav id="topnav" className=" navbar-fixed-top fixed-top navbar navbar-dark shadow px-3 navbar-expand-lg">
+                  <div>
+                    <nav id="topnav" className=" navbar-fixed-top fixed-top navbar navbar-dark px-3 navbar-expand-lg">
                         <h2 className="navbar-brand" >There</h2>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -60,10 +61,10 @@ class Home extends Component {
                                 <li className="nav-item active">
                                     <a className="nav-link" href="#services" >Home <span className="sr-only">(current)</span></a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item active">
                                     <a className="nav-link" href="#about">Services</a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item active ">
                                     <a className="nav-link" href="#about">About</a>
                                 </li>
                                 <li className="nav-item active">
@@ -72,13 +73,13 @@ class Home extends Component {
                                 <li className="nav-item active">
                                     <a onClick={this.showModal} className="nav-link" href="javascript:void(0);" >Create Account<span className="sr-only">(current)</span></a>
                                 </li>
-                                <li className="nav-item dropdown">
+                                <li className="nav-item dropdown active">
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Dropdown
                                         </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
+                                        <a className="dropdown-item" href="#">Another</a>
 
                                         <a className="dropdown-item" href="#">new</a>
                                     </div>
@@ -86,34 +87,25 @@ class Home extends Component {
                             </ul>
                         </div>
                     </nav>
-
-
-                    {/* {/ body part /} */}
+                  </div>
+                    {/* {/ body part main /} */}
                     <div className="body-content1">
                         <div className="body-content">
                             <span><h2>WELCOME!</h2></span>
                             <span><h3>Here, Introducing Top Most E-commerce Websites.</h3></span>
                             <span><h5>E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</h5></span>
-                            <span><h2></h2></span>
-                        </div>
-                    </div>
-                    <div className="body-content1">
-                        <div className="body-content">
-                            <span><h2>WELCOME!</h2></span>
-                            <span><h3>Here, Introducing Top Most E-commerce Websites.</h3></span>
-                            <span><h5>E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</h5></span>
-                            <span><h2></h2></span>
-                        </div>
-                    </div>
-                    <div className="body-content1">
-                        <div className="body-content">
-                            <span><h2>WELCOME!</h2></span>
-                            <span><h3>Here, Introducing Top Most E-commerce Websites.</h3></span>
-                            <span><h5>E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</h5></span>
-                            <span><h2></h2></span>
+                            <span className="row justify-content-center">
+                                <button className="m-3 py-3 px-5  btn btn-dark rounded-pill">Portfolio</button>
+                                <button className="m-3 py-3 px-5  btn btn-dark rounded-pill">Portfolio</button>
+                                </span>
                         </div>
                     </div>
                 </div>
+                {/* {/ body part main /} */}
+                {/* <div className="clearfix mt-4">
+                        <h3>Best Services</h3>
+                        <span><h5>E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</h5></span>
+                    </div> */}
             </div>
         );
     }
