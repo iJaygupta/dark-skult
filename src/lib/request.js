@@ -47,11 +47,11 @@ const self = {
 			self.setFingerPrint(fingerPrintFromCookies);
 		}
 		(authenticate) ? self.setHeader('Authorization', (typeof localStorage.getItem('token') != 'undefined') ? localStorage.getItem('token') : '') : '';
-		// (!url.includes("http")) ? url = process.env.REACT_APP_API_URL + url : ""
+		(!url.includes("http")) ? url = process.env.REACT_APP_API_URL + url : ""
 		console.log("self.headers", self.headers);
 		return axios({
 			method: self.method,
-			url: process.env.REACT_APP_API_URL + url,
+			url: url,
 			responseType: 'json',
 			headers: self.headers,
 			data: data,
@@ -90,7 +90,7 @@ const self = {
 				// dispatch(common.removeNotification());
 				// dispatch(common.notify("Something went wrong. Please try again later.", 'error'));
 				//}
-				console.error("API LIB ERROR : ");
+				console.error("API LIB ERROR : ", error);
 			});
 	},
 	sendExtRequest: function (url, data, callback) {

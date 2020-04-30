@@ -24,7 +24,6 @@ class Provider extends Component {
     render() {
         return (
             <div>
-                <h1>Provider Container...</h1>
                 <ProviderHeader/>
                 <ProviderListing/>
             </div>
