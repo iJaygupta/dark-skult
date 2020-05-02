@@ -78,7 +78,15 @@ class ProviderListing extends Component {
     }
 
     handlePageChange = (pageNumber) => {
-        this.setState({ page: pageNumber, pagination: true }, () => {
+        this.setState({
+            page: pageNumber,
+            pagination: true,
+            skip: this.state.skip,
+            limit: this.state.limit,
+            orderBy: this.state.orderBy,
+            sortBy: this.state.sortBy,
+            searchKeyword: this.state.searchKeyword.trim()
+        }, () => {
             this.applyFilter();
         });
     }
