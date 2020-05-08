@@ -25,8 +25,16 @@ class ProviderListing extends Component {
     }
 
     sortList = (field) => {
-        let order = (field == this.state.sortedField && this.state.sortedOrder && this.state.sortedOrder == 'desc') ? 'asc' : 'desc';
-        this.setState({ sortBy: field, orderBy: order }, () => {
+        let order = (field == this.state.sortBy && this.state.orderBy && this.state.orderBy == 'asc') ? 'desc' : 'asc';
+        this.setState({
+            sortBy: field,
+            orderBy: order,
+            skip: "",
+            limit: "",
+            pagination: "",
+            page: "",
+            searchKeyword: this.state.searchKeyword.trim()
+        }, () => {
             this.applyFilter();
         });
     }
@@ -70,7 +78,15 @@ class ProviderListing extends Component {
     }
 
     handlePageChange = (pageNumber) => {
-        this.setState({ page: pageNumber, pagination: true }, () => {
+        this.setState({
+            page: pageNumber,
+            pagination: true,
+            skip: this.state.skip,
+            limit: this.state.limit,
+            orderBy: this.state.orderBy,
+            sortBy: this.state.sortBy,
+            searchKeyword: this.state.searchKeyword.trim()
+        }, () => {
             this.applyFilter();
         });
     }
@@ -82,14 +98,13 @@ class ProviderListing extends Component {
         let previousPage = this.props.provider && this.props.provider.pagination ? this.props.provider.pagination.previousPage : "";
         let nextPage = this.props.provider && this.props.provider.pagination && this.props.provider.pagination ? this.props.provider.pagination.nextPage : 2;
 
-        console.log(nextPage, previousPage)
-
         if (this.props.provider && this.props.provider.items) {
             var provider = this.props.provider.items.map(data => {
                 return (<tr className="table-success">
                     <td>{data.name}</td>
                     <td>{data.lowest_price}</td>
                     <td>{data.description}</td>
+                    <td>{data.max_speed}</td>
                     <td>
                         <a href="#" className="view" title="View" data-toggle="tooltip"><i className="material-icons">&#xE417;</i></a>
                     </td>
@@ -112,10 +127,11 @@ class ProviderListing extends Component {
                         <table id="table-data" className="table-bordered table table-hover">
                             <thead className="thead-dark">
                                 <tr>
-                                    <th scope="col">Providers <i className="fa fa-sort"></i></th>
-                                    <th scope="col">Lowest Price <i className="fa fa-sort"></i></th>
-                                    <th scope="col">Description <i className="fa fa-sort"></i></th>
-                                    <th scope="col">Explore <i className="fa fa-sort"></i></th>
+                                    <th onClick={() => this.sortList('name')} scope="col">Providers <i className="fa fa-sort"></i></th>
+                                    <th onClick={() => this.sortList('lowest_price')} scope="col">Lowest Price <i className="fa fa-sort"></i></th>
+                                    <th scope="col">Description <i className=""></i></th>
+                                    <th onClick={() => this.sortList('max_speed')} scope="col">Range <i className="fa fa-sort"></i></th>
+                                    <th scope="col">Explore <i className=""></i></th>
                                 </tr>
                             </thead>
                             <tbody className="" id="myTable">

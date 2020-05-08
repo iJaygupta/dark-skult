@@ -62,7 +62,7 @@ class Home extends Component {
                                     <a className="nav-link" href="#services" >Home <span className="sr-only">(current)</span></a>
                                 </li>
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="#about">Services</a>
+                                    <a className="nav-link" href="provider">Providers</a>
                                 </li>
                                 <li className="nav-item active ">
                                     <a className="nav-link" href="#about">About</a>
