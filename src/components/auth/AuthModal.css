@@ -1,5 +1,5 @@
 *{
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .modal {
@@ -35,6 +35,12 @@
     border: 1.5px solid  #85bdfa !important;
     transition: transform .2s;
     transform: scale(1.01);
+  }
+  .MuiFormControl-root{
+    min-width: 100% !important;
+  }
+  #sn #standard-basic{
+    padding:100px;
   }
 
 @media (min-width: 1200px){
