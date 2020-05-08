@@ -50,7 +50,7 @@ class Home extends Component {
 
                 <div className="body-start">
                   <div>
-                    <nav id="topnav" className=" navbar-fixed-top fixed-top navbar navbar-dark px-3 navbar-expand-lg">
+                    <nav id="topnav" className=" navbar-fixed-top fixed-top navbar navbar-dark p-0 navbar-expand-lg">
                         <h2 className="navbar-brand" >There</h2>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -91,16 +91,87 @@ class Home extends Component {
                     {/* {/ body part main /} */}
                     <div className="body-content1">
                         <div className="body-content">
-                            <span><h2>WELCOME!</h2></span>
-                            <span><h3>Here, Introducing Top Most E-commerce Websites.</h3></span>
-                            <span><h5>E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</h5></span>
+                            <span className="h2 p-1 d-block">WELCOME!</span>
+                            <span className="h5 p-1 d-block">Here, Introducing Top Most E-commerce Websites.</span>
+                            <span className="h6 p-1 d-block">E-commerce is the activity of electronically buying or selling of products on online services or over the Internet</span>
                             <span className="row justify-content-center">
-                                <button className="m-3 py-3 px-5  btn btn-dark rounded-pill">Portfolio</button>
-                                <button className="m-3 py-3 px-5  btn btn-dark rounded-pill">Portfolio</button>
+                                <button className="py-2 px-3 m-2 b0 btn btn-dark rounded-pill">Portfolio</button>
+                                <button className="py-2 px-3 m-2 b0 btn btn btn-dark rounded-pill">Portfolio</button>
                                 </span>
                         </div>
                     </div>
                 </div>
+                <div class="clear-fix"></div>
+<div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+<div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+    <div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+<div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+    <div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="block">
+	<h2> #About </h2>
+    <div class="block-inner">
+    	<div class="row-1">
+        	<div>1</div><div>2</div>
+        </div>
+        <div class="row-1">
+        	<div>3</div><div>4</div>
+        </div>
+        </div>
+    </div>
+
                 {/* {/ body part main /} */}
                 {/* <div className="clearfix mt-4">
                         <h3>Best Services</h3>
