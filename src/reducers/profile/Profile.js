@@ -2,10 +2,10 @@ const profile = (state = {}, action) => {
 
     switch (action.type) {
         case 'init':
-            return { email: '', password: '', error: false, msg: '', signupError: false, isManualLogout: false, signupMsg: '', isAuthenticated: false, userInfo: {}, isAuthSuccess: false, provider: {} }
+            return { userInfo: {} }
 
-        case 'getServiceProviderList':
-            return { ...state, provider: action.data }
+        case 'getUserDetails':
+            return { ...state, userInfo: { userId : action.data.user_id , name : action.data.name } }
 
         default:
             return state

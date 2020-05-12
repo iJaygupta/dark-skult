@@ -39,9 +39,6 @@ class Home extends Component {
     };
 
     render() {
-        console.log("Props ==>> ", this.props);
-        console.log("state ==>> ", this.state);
-
 
         return (
             <div className="d-block">
@@ -65,7 +62,7 @@ class Home extends Component {
                                     <a className="nav-link" href="provider">Providers</a>
                                 </li>
                                 <li className="nav-item active ">
-                                    <a className="nav-link" href="#about">About</a>
+                                    <a className="nav-link" href="chat">Chat Room</a>
                                 </li>
                                 <li className="nav-item active">
                                     <a onClick={this.showModal} className="nav-link" href="javascript:void(0);" >Log in<span className="sr-only">(current)</span></a>

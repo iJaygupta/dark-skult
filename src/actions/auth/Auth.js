@@ -13,9 +13,10 @@ const auth = {
             isAuthSuccess: true
         }
     },
-    login: function (mobile, password, rememberMe, callback) {
+    login: function (data, callback) {
         return dispatch => {
-            api.setMethod('POST').sendRequest(apiPaths.logIn, { mobile: mobile, password: password }, false, function (response) {
+            api.setMethod('POST').sendRequest(apiPaths.logIn, data, false, function (response) {
+                localStorage.setItem('token', response.data.data.token);
                 dispatch({
                     type: 'login',
                     error: response.data.error,
@@ -27,10 +28,10 @@ const auth = {
             }, dispatch)
         }
     },
-    signUp: function (mobile, password, callback) {
+    signUp: function (data, callback) {
         return dispatch => {
-            api.setMethod('POST').sendRequest(apiPaths.signUp, { mobile: mobile, password: password }, false, function (response) {
-                console.log(response);
+            api.setMethod('POST').sendRequest(apiPaths.signUp, data, false, function (response) {
+                callback(response.data)
             }, dispatch)
         }
     },

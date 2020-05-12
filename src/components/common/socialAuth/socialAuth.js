@@ -17,19 +17,13 @@ class SocialAuth extends Component {
 
     handleSocialLogIn() {
         let queryParam = queryString.parse(this.props.location.search);
-        console.log("this.props.location.search ==>>", queryParam);
-        console.log(this.props);
 
         if (queryParam && queryParam.token) {
             this.props.authAction.socialLogin(queryParam.token, (data) => {
-                console.log("socialLogin call data ==>>", data);
                 if (data && !data.error && data.token) {
                     localStorage.setItem('token', data.token)
-                    let value = localStorage.getItem('token');
                     this.props.history.push("/profile");
-
                 } else {
-                    console.log("Failed Authentication");
                     this.props.history.push("/");
                 }
 

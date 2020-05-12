@@ -17,9 +17,7 @@ class Modal extends Component {
     }
 
     handleSociallogIn = () => {
-        console.log("URL ", process.env)
         this.props.authAction.facebookLogIn(function (data) {
-            console.log("api call data ==>>", data);
         })
     }
 
@@ -35,7 +33,7 @@ class Modal extends Component {
                             </a>
                         </div>
                         <div className="authitem1">
-                            <a href="javascript:void(0)" onClick={() => { console.log("dakh") }} ><img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_32x32.png"></img>
+                            <a href="javascript:void(0)" onClick={() => {  }} ><img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_32x32.png"></img>
                                 <span>Continue with Facebook</span>
                             </a>
                         </div>
@@ -43,7 +41,7 @@ class Modal extends Component {
                     {/* {children} */}
                     <button onClick={this.props.handleClose} className="close" >X</button>
                     {/* <a><img src="https://b.zmtcdn.com/images/new_google_icon.png"><span>Continue With Google</span></img></a> */}
-                    {/* <a href="javascript:void(0)" onClick={() => { console.log("dakh") }} className="authbutton"><img src="https://b.zmtcdn.com/images/new_google_icon.png"></img>
+                    {/* <a href="javascript:void(0)" onClick={() => {  }} className="authbutton"><img src="https://b.zmtcdn.com/images/new_google_icon.png"></img>
                     <span className="authtext">Continue with Google</span>
                 </a> */}
 

@@ -21,7 +21,7 @@ class App extends Component {
 
   authenticate = () => {
     let token = localStorage.getItem('token');
-    if (token || true) {
+    if (token) {
       return true
     } else {
       return false
@@ -31,7 +31,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div className="App" >
         <Switch>

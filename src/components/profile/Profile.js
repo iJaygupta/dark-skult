@@ -14,17 +14,11 @@ class Profile extends Component {
     componentDidMount() {
         if (this.props.userInfo && this.props.userInfo.id) {
             this.props.profileAction.getUserDetails(this.props.userInfo.id, function (response) {
-                console.log(response)
             })
-        }else{
-            console.log("no id")
         }
-        // this.props.
-
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="profile-block">
                 <div className="col-sm-8 mx-auto my-3 mt-md-8 px-md-3">

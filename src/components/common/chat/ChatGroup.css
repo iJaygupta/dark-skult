@@ -1,0 +1,28 @@
+.group-box{
+    background-color: lavender;
+    position: relative;
+    height: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.box-content{
+    width: 700px;
+    display: inline-block;  
+    text-align: center;
+
+}
+
+.box1 {
+    display: block;
+    padding: 10px;
+    margin-bottom: 100px; /* SIMPLY SET THIS PROPERTY AS MUCH AS YOU WANT. This changes the space below box1 */
+    text-align: justify;
+}
+
+.box2 {
+    display: block;
+    padding: 10px;
+    text-align: justify;
+    margin-top: 100px; /* OR ADD THIS LINE AND SET YOUR PROPER SPACE as the space above box2 */
+}

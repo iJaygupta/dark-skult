@@ -1,6 +1,6 @@
 /*
 * @Description : Common library to send http requests
-* @Author : Ritesh
+* @Author : Jay
 * @Version : 1.0
 */
 
@@ -8,7 +8,6 @@ import axios from 'axios';
 import { Cookies } from 'react-cookie';
 
 // import auth 		from './auth';
-import common from '../actions/common/Common';
 
 const self = {
 	method: "GET",
@@ -48,7 +47,6 @@ const self = {
 		}
 		(authenticate) ? self.setHeader('Authorization', (typeof localStorage.getItem('token') != 'undefined') ? localStorage.getItem('token') : '') : '';
 		(!url.includes("http")) ? url = process.env.REACT_APP_API_URL + url : ""
-		console.log("self.headers", self.headers);
 		return axios({
 			method: self.method,
 			url: url,

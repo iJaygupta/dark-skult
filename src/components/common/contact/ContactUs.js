@@ -49,7 +49,6 @@ class Contact extends Component {
     }
 
     changeRadio(e) {
-        console.log("in change", e.target.name, e.target.value)
         this.setState({
             reason: e.target.value,
             isReasonValid: true
@@ -78,7 +77,6 @@ class Contact extends Component {
             this.props.contactUs(contactUsValue)
                 .then(data => {
                     if (data.status) {
-                        console.log(data);
                         // toast.success(data.message);
                         this.setState({
                             name: '',
@@ -96,7 +94,6 @@ class Contact extends Component {
 
     validate(name, email, reason, query) {
         const errors = [];
-        console.log(reason)
         if (name.trim()
             .replace(/ +(?= )/g, "") == "") {
             errors.push("invalid");

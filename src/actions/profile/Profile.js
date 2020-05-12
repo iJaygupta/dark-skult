@@ -6,17 +6,13 @@ import buildUrl from '../../lib/utils';
 
 
 const profile = {
-    getUserDetails: function (userId, callback) {
-
+    getUserDetails: function (callback) {
         return dispatch => {
             api.setMethod('GET').sendRequest(`${apiPaths.getUserDetails}`, null, true, function (response) {
-                // dispatch({
-                //     type: 'socialLogin',
-                //     error: response.data.error,
-                //     msg: response.data.msg,
-                //     token: response.data.token,
-                //     userInfo: response.data.data
-                // });
+                dispatch({
+                    type: 'getUserDetails',
+                    data: response.data.data[0]
+                });
                 callback(response.data);
             }, dispatch)
         }
@@ -35,7 +31,8 @@ const profile = {
                 callback(response.data);
             }, dispatch)
         }
-    }
+    },
+    
 }
 
 export default profile;

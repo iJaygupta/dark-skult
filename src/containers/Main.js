@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Switch, Route } from "react-router-dom";
 import Profile from '../components/profile/Profile';
 import DisplayMsg from '../components/pages/NotFound';
-import Loader from '../components/common/loader/Laoder';
+import Loader from '../components/common/loader/Loader';
+import Chat from '../components/common/chat/Chat';
+
 
 
 
@@ -20,6 +22,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/loader" component={Loader} />
+                    <Route exact path="/chat" component={Chat} />
                     <Route path="*" component={DisplayMsg} />
                 </Switch>
             </div>

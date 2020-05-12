@@ -58,7 +58,6 @@ class ProviderListing extends Component {
             searchKeyword: this.state.searchKeyword.trim()
         }
         this.props.profileAction.getServiceProviderList(filters, (response) => {
-            console.log(response)
         })
     }
 
