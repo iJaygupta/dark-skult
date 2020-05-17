@@ -74,26 +74,29 @@ class Modal extends Component {
             <div className="card-body">
               {this.state.isAuthModal &&
                 <div>
-                  <h5 className="card-title"><h3><b style={{ "font-size": "16px" }}>Sign up or Log in to There</b></h3></h5>
+                  <h5 className="card-title">
+                    <h3><b style={{ "font-size": "16px" }}>Sign up or Log in to There</b></h3>
+                    <span aria-hidden="true"><h3 style={{"position": "absolute","top": "-6px" ,"right": "3px","cursor": "pointer"}}>&times;</h3></span>
+                  </h5>
                   <hr />
                   <div>
                     <a href={googleUrl} className="card-link row border card-link p-3 active rounded m-3">
-                      <div className="col-4"><img width="25px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQ5fUKXoCIu4PTQutgld0al75g5OUNRY4jPxmEuRkRM21tEwQT&usqp=CAU" /></div>
-                      <div className="col-8"><h6 className="card-subtitle mt-2 text-muted"> Continue with Google</h6></div>
+                      <div className="col-3"><img width="25px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQ5fUKXoCIu4PTQutgld0al75g5OUNRY4jPxmEuRkRM21tEwQT&usqp=CAU" /></div>
+                      <div className="col-9"><h6 className="card-subtitle mt-2 text-muted"> Continue with Google</h6></div>
                     </a>
                   </div>
 
                   <div>
                     <a href={facebookUrl} className="card-link row border card-link p-3 active rounded m-3">
-                      <div className="col-4"><img width="25px" src="https://clipart.info/images/ccovers/1509135364flat-facebook-logo-png-icon-circle.png" /></div>
-                      <div className="col-8"><h6 className="card-subtitle mt-2 text-muted" >Continue with Facebook</h6></div>
+                      <div className="col-3"><img width="25px" src="https://clipart.info/images/ccovers/1509135364flat-facebook-logo-png-icon-circle.png" /></div>
+                                            <div className="col-9"><h6 className="card-subtitle mt-2 text-muted" >Continue with Facebook</h6></div>
                     </a>
                   </div>
 
                   <h5 className="card-subtitle text-center m-3" style={{ "font-size": "14px" }}>or use your email address</h5>
                   <div className="row text-center m-3">
-                    <div className="col-6" style={{ "text-align-last": "right" }}><button onClick={this.changeAuthMode} name="login" className="btn btn-primary border active px-4 py-3">Log in</button> </div>
-                    <div className="col-6" style={{ "text-align-last": "left" }}><button onClick={this.changeAuthMode} name="signup" className="btn btn-primary border px-4 py-3 ">Sign up</button></div>
+                    <div className="col-6" style={{ "text-align-last": "right" }}><button onClick={this.changeAuthMode} name="login" className="btn btn-primary border active  py-3" style={{"padding-right": "1.7rem", "padding-left": "1.7rem"}}>Log in</button> </div>
+                    <div className="col-6" style={{ "text-align-last": "left" }}><button onClick={this.changeAuthMode} name="signup" className="btn btn-primary border  py-3 " style={{"padding-right": "1.7rem", "padding-left": "1.7rem"}}>Sign up</button></div>
                   </div>
                 </div>
               }

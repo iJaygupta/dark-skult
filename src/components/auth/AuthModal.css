@@ -50,11 +50,18 @@
 }
 @media (min-width: 992px){
   .container {  
-    max-width: 35% !important;
+    max-width: 35% !important;    
   }
+  /*.body{
+      width: 45vh !important;
+    left: 48px !important;
+    position: absolute !important;
+    height: 36vh !important;
+    }*/
 }
 @media (min-width: 768px){
   .container, .container-md, .container-sm {
       max-width: 450px !important;
   }
+  
 }
